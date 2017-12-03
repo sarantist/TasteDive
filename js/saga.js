@@ -3,7 +3,7 @@ import { put, takeEvery, select } from 'redux-saga/effects'
 
 // Requests a list of items based on the search criteria 
 function getSimilar(input, category) {
-  input = "the matrix"
+  //input = "the matrix"
   return new Promise(resolve => {
     const url = BASE_URL + '/similar?k=' + API_KEY + '&info=1&type=' + category + '&limit=50' + '&q=' + encodeURIComponent(input);
     fetch(url, {method: "GET"})
