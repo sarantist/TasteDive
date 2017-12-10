@@ -1,13 +1,13 @@
 import React from 'react'
-import Home from './components/Home'
 import configureStore from './configureStore'
 import { Provider } from 'react-redux'
+import AppWithNavigationState from './appNavigator';
 
 const store = configureStore()
 const App = () => {
   return (
     <Provider store={store}>
-      <Home />
+      <AppWithNavigationState />
     </Provider>
   )
 }

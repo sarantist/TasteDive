@@ -13,7 +13,7 @@ const Home = (props) => {
   // Opens a modal that displays more info about the selected item
   function showDetails(data) {
     props.setSelectedItem(data)
-    props.toggleModal()
+    props.navigation.navigate("DetailedView", data);
   }
 
   return (
@@ -42,7 +42,7 @@ const Home = (props) => {
                 <View><Row {...data} /></View>
                 </TouchableHighlight>}
             />
-            <DetailedView {...props} />
+            
           </View>
         ) : null
       }
