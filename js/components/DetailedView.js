@@ -6,7 +6,7 @@ import styles from '../../styles/app'
 const win = Dimensions.get('window');
 const DetailedView = (props) => {
   return (
-    <View>
+    <ScrollView>
       <TouchableOpacity onPress={() => Linking.openURL(props.navigation.state.params.yUrl)}>
         <Image
           style={{height: 300, width: win.width}}
@@ -24,7 +24,7 @@ const DetailedView = (props) => {
         onPress={() => Linking.openURL(props.navigation.state.params.wUrl)}>
         Wikipedia
       </Text>
-    </View>
+    </ScrollView>
   )
 }
 

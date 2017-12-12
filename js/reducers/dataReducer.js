@@ -1,26 +1,13 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, SET_INPUT_DATA, SET_CATEGORY_DATA, TOGGLE_MODAL, SELECTED_ITEM } from '../constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, SET_INPUT_DATA, SET_CATEGORY_DATA } from '../constants'
 const initialState = {
   data: [],
   dataFetched: false,
   isFetching: false,
-  error: false,
-  modalVisible: false
+  error: false
 }
 
 export default function dataReducer (state = initialState, action) {
   switch (action.type) {
-
-    case SELECTED_ITEM: 
-      return {
-        ...state,
-        selectedItem: action.item
-      } 
-    
-    case TOGGLE_MODAL:
-      return{
-        ...state,
-        modalVisible : !state.modalVisible
-      }
 
     case SET_INPUT_DATA:
       return {
