@@ -14,3 +14,6 @@ Provide recommendations and help you discover new music, movies, TV shows, books
 - Design improvement
 - More tests using Jest
 - Add to favorites feature
+
+<img src="https://i.imgur.com/cfYmd4T.png" width="400">
+<img src="https://i.imgur.com/xHLEM11.jpg" width="400">
