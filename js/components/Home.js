@@ -1,7 +1,9 @@
 import React from 'react'
-import { TouchableHighlight, View, Text, StyleSheet, ListView, TextInput, Picker, Modal, Image, Linking, ScrollView} from 'react-native'
+import { TouchableHighlight, StyleSheet, Picker, Image } from 'react-native'
+import { Container, Header, Item, Input, Icon, Button, Text, Content} from 'native-base';
+
 import { connect } from 'react-redux'
-import { fetchData, setSearch, setCategory, toggleModal, setSelectedItem} from '../actions'
+import { fetchData, setSearch, setCategory } from '../actions'
 import styles from '../../styles/app'
 import DetailedView from './DetailedView'
 import ResultList from './ResultList'
@@ -9,17 +11,25 @@ import CategoryPicker from './CategoryPicker'
 
 const Home = (props) => {
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={{height: 40}}
-        placeholder="Type a movie, tv show, video game or a band..."
-        onChangeText={(text) => props.setSearch(text)}
-        value={props.appData.searchingFor}
-      />
+    <Container>
+      <Header searchBar rounded>
+        <Item>
+          <Icon name="ios-search" />
+          <Input placeholder="Type a movie, tv show, video game or a band..."
+            onChangeText={(text) => props.setSearch(text)}
+            value={props.appData.searchingFor} />
+          <Icon name="ios-people" />
+        </Item>
+        <Button transparent>
+          <Text>Search</Text>
+        </Button>
+      </Header>
+      <Content>
       <CategoryPicker {...props}/>
-      <TouchableHighlight style={styles.searchButton} onPress={() => props.fetchData()}>
-        <Text style={styles.buttonText}>Find Similar</Text>
-      </TouchableHighlight>
+      <Button  block onPress={() => props.fetchData()}>
+            <Text>Find Similar</Text>
+      </Button>
+      
       {
         props.appData.isFetching && <Text>Loading</Text>
       }
@@ -28,7 +38,8 @@ const Home = (props) => {
           <ResultList {...props} />
         ) : null
       }
-    </View>
+      </Content>
+    </Container>
   )
 }
 
