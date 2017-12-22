@@ -6,11 +6,12 @@ TasteDive is a simple implementation of the TasteDive API
 Provide recommendations and help you discover new music, movies, TV shows, books, authors and games, based on what you like.
 
 ## Made with
-- React native
-- Redux
-- Redux-Saga
-- react-native-youtube
-- react-navigation
+- [react native](https://facebook.github.io/react-native/)
+- [redux] (https://redux.js.org/)
+- [redux-saga](https://redux-saga.js.org/)
+- [nativebase.io] (https://nativebase.io/)
+- [react-native-youtube] (https://github.com/inProgress-team/react-native-youtube)
+- [react-navigation] (https://reactnavigation.org/)
 
 ## Things that will be added in the future
 - Design improvement
