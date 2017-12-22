@@ -1,44 +1,26 @@
 import React from 'react'
-import { TouchableHighlight, StyleSheet, Picker, Image } from 'react-native'
-import { Container, Header, Item, Input, Icon, Button, Text, Content} from 'native-base';
+import { View, StatusBar } from 'react-native'
+import { Text, Spinner, Container } from 'native-base';
 
 import { connect } from 'react-redux'
-import { fetchData, setSearch, setCategory } from '../actions'
+import { fetchData, setSearch, setCategory, setSuggestion} from '../actions'
 import styles from '../../styles/app'
-import DetailedView from './DetailedView'
 import ResultList from './ResultList'
-import CategoryPicker from './CategoryPicker'
+import SearchBar from './SearchBar'
 
 const Home = (props) => {
   return (
     <Container>
-      <Header searchBar rounded>
-        <Item>
-          <Icon name="ios-search" />
-          <Input placeholder="Type a movie, tv show, video game or a band..."
-            onChangeText={(text) => props.setSearch(text)}
-            value={props.appData.searchingFor} />
-          <Icon name="ios-people" />
-        </Item>
-        <Button transparent>
-          <Text>Search</Text>
-        </Button>
-      </Header>
-      <Content>
-      <CategoryPicker {...props}/>
-      <Button  block onPress={() => props.fetchData()}>
-            <Text>Find Similar</Text>
-      </Button>
-      
+      <StatusBar backgroundColor="#2C3E50"/>
+      <SearchBar {...props}/>
       {
-        props.appData.isFetching && <Text>Loading</Text>
+        props.appData.isFetching &&  <Spinner color='blue' />
       }
       {
         props.appData.data.length ? (
-          <ResultList {...props} />
+          <ResultList {...props}/>
         ) : null
       }
-      </Content>
     </Container>
   )
 }
@@ -54,6 +36,7 @@ function mapDispatchToProps (dispatch) {
     fetchData: () => dispatch(fetchData()),
     setSearch: (text) => dispatch(setSearch(text)),
     setCategory: (value) => dispatch(setCategory(value)),
+    setSuggestion: (value) => dispatch(setSuggestion(value))
   }
 }
 

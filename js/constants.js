@@ -9,3 +9,6 @@ export const BASE_URL = 'https://tastedive.com/api/'
 export const SET_INPUT_DATA = 'SET_INPUT_DATA'
 export const SET_CATEGORY_DATA = 'SET_CATEGORY_DATA'
 
+export const INPUT_DATA_AUTO_COMPLETE = 'INPUT_DATA_AUTO_COMPLETE'
+
+export const SET_SUGGESTION = 'SET_SUGGESTION'

@@ -1,34 +1,33 @@
 import React from 'react'
-import { View, Text, TextInput, Image, FlatList, TouchableHighlight } from 'react-native'
+import { FlatList, TouchableWithoutFeedback } from 'react-native'
+import { Text, Content, CardItem, Thumbnail, Body, Left, Card } from 'native-base';
 import styles from '../../styles/app'
 
 const ListView = (props) => {
-  // Navigates to detailed view
-  function showDetails(data) {
-    props.navigation.navigate("DetailedView", data);
-  }
-  
   return (
     <FlatList 
       data={props.appData.data}
       keyExtractor={(item, index) => index}
-      renderItem={({item}) => 
-      <TouchableHighlight onPress={() => showDetails(item)}>
-        <View style={styles.listItem}>
-          <Image
-            style={styles.listItemThumb}
-            source={{uri: 'https://img.youtube.com/vi/'+ item.yID +'/0.jpg'}}
-          />
-          <View style={styles.listItemTextContainer}>
-            <Text style={styles.listTextTitle}>
-              {item.Name}
-            </Text>
-            <Text style={styles.listText}>
-              {item.Type}
-            </Text>
-          </View>
-        </View>
-      </TouchableHighlight>}
+      renderItem={({item}) =>
+      <TouchableWithoutFeedback 
+        onPress={() => props.navigation.navigate("DetailedView", item)}>
+      <Card style={{ flex: 0 }}>
+        <CardItem>
+          <Left>
+            <Thumbnail source={{uri: 'https://img.youtube.com/vi/'+ item.yID +'/0.jpg'}}/>
+            <Body>
+              <Text>{item.Name}</Text>
+              <Text note>{item.Type}</Text>
+            </Body>
+          </Left>
+        </CardItem>
+        <CardItem>
+          <Text numberOfLines={5} ellipsizeMode='tail'>
+            {item.wTeaser}
+          </Text>
+        </CardItem>
+      </Card>
+      </TouchableWithoutFeedback>}
     />
   )
 }

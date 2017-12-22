@@ -1,4 +1,4 @@
-import { FETCHING_DATA, SET_INPUT_DATA, SET_CATEGORY_DATA } from './constants'
+import { FETCHING_DATA, SET_INPUT_DATA, SET_CATEGORY_DATA, SET_SUGGESTION } from './constants'
 
 export function fetchData() {
   return {
@@ -19,3 +19,11 @@ export function setCategory(value) {
     category: value
   }
 }
+
+export function setSuggestion(value) {
+  return {
+    type: SET_SUGGESTION,
+    selected: value
+  }
+}
+
