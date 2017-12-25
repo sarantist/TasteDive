@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, StyleSheet, Picker, Image, FlatList, View, StatusBar, Keyboard} from 'react-native'
+import { TouchableOpacity, StyleSheet, Picker, Image, FlatList, View, StatusBar, Keyboard } from 'react-native'
 import { Container, Header, Item, Input, Icon, Button, Text, Content, Form, Card, CardItem, Body, Spinner, Fab} from 'native-base';
 
 import { connect } from 'react-redux'
@@ -12,24 +12,27 @@ import Suggestions from './Suggestions'
 
 const SearchBar = (props) => {
   return (
+    <View>
       <Form style={{backgroundColor: '#2C3E50', padding: 5}}>
         <Item style={{borderBottomWidth: 0, marginLeft:0}}>
           <Input placeholder=""
             placeholderTextColor="#2C3E50"
             selectionColor="#000" 
             style={{backgroundColor:'#ECF0F1'}}
+            onSubmitEditing={(event) => props.fetchData()}
             onChangeText={(text) => props.setSearch(text)}
             value={props.appData.searchingFor} />
            <Button transparent onPress={() => props.fetchData()}>
             <Icon name="ios-search" style={{color: '#ECF0F1'}}/>
           </Button>
         </Item>
-        {
-        props.appData.suggestions && props.appData.suggestions.length > 0 && 
-          <Suggestions {...props}/>
-        }
         <CategoryPicker {...props}/>
       </Form>
+        {
+          props.appData.suggestions && props.appData.suggestions.length > 0 && 
+          <Suggestions {...props}/>
+        }
+    </View>
   )
 }
 

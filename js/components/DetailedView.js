@@ -45,8 +45,7 @@ export default class DetailedView extends React.Component {
           </Body>
           <Right />
         </Header>
-        <ScrollView>
-          <YouTube
+        <YouTube
             ref={component => {
               this._youTubeRef = component;
             }}
@@ -57,6 +56,7 @@ export default class DetailedView extends React.Component {
             fullscreen={false}
             style={{ height:this.state.playerHeight, alignSelf: 'stretch'}}
           />
+        <ScrollView>
           <Card>
             <CardItem>
               <Body>

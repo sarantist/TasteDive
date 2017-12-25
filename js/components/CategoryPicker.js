@@ -6,7 +6,7 @@ const CategoryPicker = (props) => {
   return (
     <Picker
       style={{color: '#ECF0F1'}}
-      mode="dropdown"
+      mode="dialog"
       selectedValue={props.appData.selectedCategory}
       onValueChange={(itemValue, itemIndex) => props.setCategory(itemValue)}>
       {/*<Picker.Item label="Everything" value="everything"/>*/}

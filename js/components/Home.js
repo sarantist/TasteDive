@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { fetchData, setSearch, setCategory, setSuggestion} from '../actions'
 import styles from '../../styles/app'
 import ResultList from './ResultList'
+import NoResultsText from './NoResultsText'
 import SearchBar from './SearchBar'
 
 const Home = (props) => {
@@ -15,6 +16,10 @@ const Home = (props) => {
       <SearchBar {...props}/>
       {
         props.appData.isFetching &&  <Spinner color='blue' />
+      }
+      {
+        props.appData.resultsLength == 0 &&
+        <NoResultsText />
       }
       {
         props.appData.data.length ? (
