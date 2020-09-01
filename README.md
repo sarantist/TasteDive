@@ -1,4 +1,4 @@
-# TasteDive (work in progress)
+# TasteDive
 
 TasteDive is a simple implementation of the TasteDive API
 
