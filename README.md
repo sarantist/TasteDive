@@ -11,14 +11,7 @@ Provide recommendations and help you discover new music, movies, TV shows, books
 - [redux-saga](https://redux-saga.js.org/)
 - [nativebase.io](https://nativebase.io/)
 - [react-native-youtube](https://github.com/inProgress-team/react-native-youtube)
-- [react-navigation](https://reactnavigation.org/)
-
-## Things that will be added in the future
-- Design improvement
-- More tests using Jest
-- Add to favorites feature
-- Remove inline styles
-- Fix indentation
+- [react-navigation](https://reactnavigation.org/
 
 <img src="https://i.imgur.com/qjSZW3S.png" width="400">
 <img src="https://i.imgur.com/4aDXc5P.jpg" width="400">
